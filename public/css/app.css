@@ -1,0 +1,250 @@
+.bs-example{
+    margin: 20px;
+}
+body{
+    padding-top: 70px;
+
+}
+
+
+.navbar{
+position: fixed;
+width: 100%;
+}
+.slider{
+background-image: url(../images/dog2.jpg);
+min-height: 500px;
+/* Center and scale the image nicely */
+
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+.heading{
+
+color: #74B9FF;
+font-size: 50px;
+font-weight: bold;
+}
+.button {
+background-color: #192A56;
+border: none;
+color: white;
+padding: 16px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+transition-duration: 0.4s;
+cursor: pointer;
+}
+.button1 {
+background-color:transparent;
+color: white;
+border: 2px solid #192A56;
+}
+
+.button1:hover {
+background-color:#192A56;
+color: white;
+}
+
+
+@media only screen and (max-width:900px) {
+/* For tablets: */
+.heading{
+
+color: #74B9FF;
+font-size: 20px;
+font-weight: bold;
+}
+.button {
+background-color: #192A56;
+border: none;
+color: white;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+margin: 4px 2px;
+transition-duration: 0.4s;
+cursor: pointer;
+}
+.slider{
+background-image: url(../images/dog2.jpg);
+
+min-width: 100%;
+
+background-size: contain;
+min-height: 400px;
+}
+}
+@media only screen and (max-width:500px) {
+/* For mobile phones: */
+.heading{
+
+color: #74B9FF;
+font-size: 10px;
+font-weight: bold;
+}
+.button {
+background-color: #192A56;
+border: none;
+color: white;
+padding: 4px 2px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 10px;
+margin: 0px 4px;
+transition-duration: 0.4s;
+cursor: pointer;
+height: 30px;
+}
+
+.ceoimage{
+max-width:300px;
+}
+.slider{
+background-image: url(../images/dog2.jpg);
+background-repeat: no-repeat;
+
+background-size: contain;
+
+ min-height: 200px;
+}
+
+}
+
+.card {
+box-shadow: 0 4px 8px 0 rgba(3, 161, 252);
+transition: 0.3s;
+}
+
+.card:hover {
+box-shadow: 0 8px 16px 0 rgba(3, 161, 252);
+}
+
+.container {
+padding: 2px 16px;
+}
+.bg-img {
+/* The image used */
+background-image: url(../images/form.jpg);
+
+min-height: 500px;
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+
+/* Add styles to the form container */
+.container1 {
+position: absolute;
+right: 0;
+margin: 20px;
+max-width: 400px;
+padding: 16px;
+background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=number],input[type=datetime-local]  {
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+}
+
+input[type=text]:focus, input[type=number]:focus,input[type=datetime-local]:focus {
+background-color: #ddd;
+outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+background-color: #192A56;
+color: white;
+padding: 16px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+}
+
+.btn:hover {
+opacity: 1;
+}
+
+.slideshow-container {
+position: relative;
+background: #f1f1f1f1;
+}
+
+/* Slides */
+.mySlides {
+display: none;
+padding: 80px;
+text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+cursor: pointer;
+position: absolute;
+top: 50%;
+width: auto;
+margin-top: -30px;
+padding: 16px;
+color: #888;
+font-weight: bold;
+font-size: 20px;
+border-radius: 0 3px 3px 0;
+user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+position: absolute;
+right: 0;
+border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+background-color: rgba(0,0,0,0.8);
+color: white;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+  background: #ddd;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+cursor: pointer;
+height: 15px;
+width: 15px;
+margin: 0 2px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}

@@ -188,7 +188,7 @@ button:hover, a:hover {
                                     <span>{{ $mascota->peso }}</span>
                                 </li>
                                 <li>
-                                    <a>Nombre</a>
+                                    <a>Nombre: </a>
                                     <span>{{ $mascota->nombre }}</span>
                                 </li>
                             </ul>
@@ -198,11 +198,11 @@ button:hover, a:hover {
                                     <a href="{{ route('adoptar.show',$mascota->id) }}" class="btn btn-dark mb-2" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Adoptar</a>
                                 @endguest
                                 @auth
-                                @if(Auth::user()->id != $mascota->id_propietario)
-                                    <a href="{{ route('adoptar.show',$mascota->id) }}" class="btn btn-dark mb-2" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Adoptar</a>
-                                @else
-                                    <button class="btn btn-warning mb-2" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Actualizar</button>
-                                @endif
+                                    @if(Auth::user()->id != $mascota->id_propietario)
+                                        <a href="{{ route('mascotas.show',$mascota->id) }}" class="btn btn-dark mb-2" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Adoptar</a>
+                                    @else
+                                        <a href="{{ route('mascotas.edit', $mascota->id) }}" class="btn btn-warning mb-2" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Actualizar</a>
+                                    @endif
                                 @endauth
                             </div>
                         </div>

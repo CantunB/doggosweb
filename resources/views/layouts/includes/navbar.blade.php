@@ -3,9 +3,9 @@
     </div>
     <div class="navbar-nav ml-auto">
         <a href="/" class="nav-item nav-link">Inicio</a>
-        <a href="{{ route('mascotas') }}" class="nav-item nav-link"> Mascotas </a>
+        <a href="{{ route('mascotas.index') }}" class="nav-item nav-link"> Mascotas </a>
         <a href="{{ route('servicios') }}" class="nav-item nav-link"> Servicios </a>
-        <a href="{{ route('veterinarios') }}" class="nav-item nav-link">Veterinarios </a>
+        <a href="{{ route('veterinarios.index') }}" class="nav-item nav-link">Veterinarios </a>
         <a href="{{ route('contacto') }}" class="nav-item nav-link"> Contacto </a>
         @guest
         @if (Route::has('login'))
@@ -24,6 +24,7 @@
                 {{ Auth::user()->nombre }}
             </a>
             <div class="dropdown-menu">
+                <a href="{{ route('home') }}" class="dropdown-item">Dashboard</a>
                 <a href="{{ route('dar_adopcion.index') }}" class="dropdown-item">Dar en adopción</a>
                 {{--  <a href="{{ route('adoptados.index') }}" class="dropdown-item">Adoptados</a>  --}}
                 <a class="dropdown-item" href="{{ route('logout') }}"

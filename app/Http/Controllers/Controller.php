@@ -13,10 +13,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function mascotas(){
-        $mascotas = Pet::all();
-        return view('mascotas',compact('mascotas'));
-    }
     public function servicios(){
         return view('servicios');
     }

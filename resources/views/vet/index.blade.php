@@ -188,80 +188,43 @@ width:50%
     </div>
 
 
-<h2 align="center" class="mt-4">OUR DOCTORS</h2>
-<br><br>
-
-        <div class="row" style="width: 100%;">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/doc2.jpg" >
-                    <div class="container">
-                    <h4><b>MISS.ROSE</b></h4>
-                    <p>Veterinary Surgeon</p>
-                    <P>5+ Years of Experience</P>
-                    <P>Expertise in treatment and management of animals</P>
+<h2 align="center" class="mt-4 mb-4">Nuestros veterinarios</h2>
+    <div class="container mt-2 mb-4">
+        @auth
+            @can('nuevo')
+                <div class="col-md-4 bg_blur ">
+                    <a href="{{ route('veterinarios.create') }}" class="btn btn-success follow_btn hidden-xs mb-4 mt-4">Nuevo</a>
                 </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/doc4.jpg">
-                    <div class="container">
-                    <h4><b>MISS WHITE</b></h4>
-                    <p>Veterinary Surgeon</p>
-                    <P>5+ Years of Experience</P>
-                    <P>Expertise in treatment and management of animals</P>
+            @endcan
+        @endauth
+        <div class="row">
+            @foreach ($veterinarios as $veterinario)
+                    <div class="col-md-4 mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ asset('/images/veterinarios/'.$veterinario->avatar) }}" >
+                            <div class="card-body">
+                                <h4><b>{{ $veterinario->fullname }}</b></h4>
+                                <p>{{ $veterinario->email }}</p>
+                                <P>{{ $veterinario->experience }}+ años de experiencia</P>
+                                <P>{{ $veterinario->descripcion }}</P>
+                            </div>
+                            <div class="card-footer">
+                                @can('Actualizar')
+                                    <a href="{{ route('veterinarios.edit',$veterinario->id) }}" class="btn btn-warning">Actualizar</a>
+                                @endcan
+                                @can('Eliminar')
+                                    <form action="{{ route('veterinarios.destroy',$veterinario->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger mt-2 mb-2">Dar de baja</button>
+                                    </form>
+                                @endcan
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/doc5.jpg">
-                    <div class="container">
-                    <h4><b>MR.WHITE</b></h4>
-                    <p>Veterinary Surgeon</p>
-                    <P>5+ Years of Experience</P>
-                    <P>Expertise in treatment and management of animals</P>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <br><br>
-          <div class="row" style="width: 100%;">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/doc1.jpg" >
-                    <div class="container">
-                    <h4><b>MISS.ROSE</b></h4>
-                    <p>Veterinary Surgeon</p>
-                    <P>5+ Years of Experience</P>
-                    <P>Expertise in treatment and management of animals</P>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/doc3.jpg" >
-                    <div class="container">
-                    <h4><b>Mr.WHITE</b></h4>
-                    <p>Veterinary Surgeon</p>
-                    <P>5+ Years of Experience</P>
-                    <P>Expertise in treatment and management of animals</P>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/doc6.jpg" >
-                    <div class="container">
-                    <h4><b>Miss.WHITE</b></h4>
-                    <p>Veterinary Surgeon</p>
-                    <P>5+ Years of Experience</P>
-                    <P>Expertise in treatment and management of animals</P>
-                    </div>
-                </div>
-            </div>
-          </div>
+            @endforeach
+        </div>
+    </div>
 </body>
 <footer class="footer footer-light bg-dark" style="color: white;margin-top: 50px;" >
     <div class="container">

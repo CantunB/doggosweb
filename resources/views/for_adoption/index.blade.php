@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="btn-group" role="group">
-        <a href="{{ route('dar_adopcion.create') }}" type="button" class="btn btn-success">Dar en adopcion</a>
+        <a href="{{ route('mascotas.create') }}" type="button" class="btn btn-success">Dar en adopcion</a>
     </div>
     <div class="row justify-content-center">
         @foreach ($mascotas as $mascota)
@@ -41,7 +41,7 @@
                     </p>
                         <div class="col-sm-12 col-xs-12">
                             <a href="{{ route('dar_adopcion.show', $mascota->id) }}" class="btn btn-info mb-2" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Ver</a>
-                            <a href="{{ route('dar_adopcion.edit', $mascota->id) }}" class="btn btn-warning mb-2" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Actualizar</a>
+                            <a href="{{ route('mascotas.edit', $mascota->id) }}" class="btn btn-warning mb-2" type="button"><span class="glyphicon glyphicon-step-backward"></span>&nbsp;Actualizar</a>
                             <form action="{{ route('dar_adopcion.destroy',$mascota->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')

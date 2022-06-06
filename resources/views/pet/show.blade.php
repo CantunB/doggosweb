@@ -6,7 +6,7 @@
         <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
             <div class="row panel">
                 <div class="col-md-4 bg_blur ">
-                    <a href="{{ route('adoptar.store') }}" class="btn btn-success follow_btn hidden-xs">Adoptar</a>
+                    <a href="{{ route('adoptar.edit', $mascota->id) }}" class="btn btn-success follow_btn hidden-xs">Adoptar</a>
                     <a onclick="history.back()" class="btn btn-secondary follow_btn hidden-xs mt-2 mb-2">Regresar</a>
                 </div>
                 <div class="col-md-8  col-xs-12">

@@ -6,7 +6,7 @@ use App\Models\Adoption;
 use App\Models\Pet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use File;
 class AdoptionController extends Controller
 {
     public function __construct()
@@ -76,6 +76,17 @@ class AdoptionController extends Controller
     public function edit($id)
     {
         // return view('posts.edit',compact('post'));
+        $mascota = Pet::findOrFail($id);
+        $adopcion = new Adoption;
+        $adopcion->id_new_propietario = Auth::user()->id;
+        $adopcion->id_mascota = $mascota->id;
+        $adopcion->status = 1;
+        $adopcion->save();
+
+        $mascota->status = 1;
+        $mascota->save();
+        return redirect()->route('home')->with('sucess', 'Adopcion realizada');
+
     }
 
     /**
@@ -99,6 +110,11 @@ class AdoptionController extends Controller
     public function destroy($id)
     {
         $mascota = Pet::findOrFail($id);
+        $image_path = public_path("images/mascotas/".$mascota->foto);
+        if(file_exists($image_path)){
+            //File::delete($image_path);
+            File::delete( $image_path);
+        }
         $mascota->delete();
         return redirect()->route('dar_adopcion.index')->with('success','Se dio de baja a la mascota');
     }

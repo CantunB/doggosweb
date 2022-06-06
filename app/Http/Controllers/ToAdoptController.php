@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adoption;
 use App\Models\Pet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ToAdoptController extends Controller
 {
@@ -50,8 +52,7 @@ class ToAdoptController extends Controller
      */
     public function show($id)
     {
-        $mascota = Pet::findOrFail($id);
-        return view('to_adoption.show', compact('mascota'));
+
     }
 
     /**
@@ -62,7 +63,17 @@ class ToAdoptController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mascota = Pet::findOrFail($id);
+        $adopcion = new Adoption;
+        $adopcion->id_new_propietario = Auth::user()->id;
+        $adopcion->id_mascota = $mascota->id;
+        $adopcion->status = 1;
+        $adopcion->save();
+
+        $mascota->status = 1;
+        $mascota->save();
+        return redirect()->route('home')->with('sucess', 'Adopcion realizada');
+
     }
 
     /**

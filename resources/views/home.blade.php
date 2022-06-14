@@ -120,7 +120,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $usuario->fullname }}</td>
                                         <td>{{ $usuario->email }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($veterinario->from_date)->format('d/m/Y') }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($usuario->from_date)->format('d/m/Y') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

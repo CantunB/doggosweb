@@ -64,7 +64,8 @@ class AdoptionController extends Controller
      */
     public function show($id)
     {
-        return $id;
+        $mascota = Pet::findOrFail($id);
+        return view('for_adoption.show', compact('mascota'));
     }
 
     /**
